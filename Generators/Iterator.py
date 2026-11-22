@@ -1,30 +1,3 @@
-"""
-class Parzyste:
-    def __init__(self, limit=None):
-        self.limit = limit
-        self.licznik = 0
-        self.aktualna = 2
-        
-    def __iter__(self):
-        return self
-    
-    def __next__(self):
-        if self.limit is not None and self.licznik >= self.limit:
-            raise StopIteration
-        
-        wynik = self.aktualna
-        self.aktualna += 2
-        self.licznik += 1
-        return wynik
-    
-for x in Parzyste(3):
-    print(x)
-
-it = Parzyste()
-print(next(it))
-print(next(it))
-"""
-
 class Fibonacci:
     def __init__(self, n=None):
         self.n = n
@@ -45,8 +18,10 @@ class Fibonacci:
         return wynik
 
 def main():
-    Fibonacci(10)
-  
+    for liczba in Fibonacci(10):
+        print(liczba, end=" ")
+    print()
+
     gen = Fibonacci()
     
     for _ in range(10):
@@ -61,9 +36,9 @@ def main():
     print()
 
     for _ in range(10):
-           liczba = next(gen)
-           if liczba % 5 == 0:
-               print(liczba, end=" ")
+        liczba = next(gen)
+        if liczba % 5 == 0:
+            print(liczba, end=" ")
     print()
 
 
